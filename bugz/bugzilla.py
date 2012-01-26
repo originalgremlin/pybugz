@@ -719,7 +719,7 @@ class Bugz:
 		except:
 			return {}
 
-	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = '', os='', browser=''):
+	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = '', os='', browser='', milestone=''):
 		"""Post a bug
 
 		@param product: product where the bug should be placed
@@ -752,7 +752,9 @@ class Bugz:
 		@type: string
 		@keyword browser: web browser which caused the bug to manifest
 		@type: string
-
+		@keyword milestone: target milestone (alpha, beta, launch, etc.)
+		@type: string
+		
 		@rtype: int
 		@return: the bug number, or 0 if submission failed.
 		"""
@@ -771,6 +773,7 @@ class Bugz:
 		qparams['blocked'] = blocked
 		qparams['op_sys'] = os
 		qparams['cf_browser'] = browser
+		qparams['target_milestone'] = milestone
 
 		#XXX: default version is 'unspecified'
 		if version != '':
