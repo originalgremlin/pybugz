@@ -719,7 +719,7 @@ class Bugz:
 		except:
 			return {}
 
-	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = ''):
+	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = '', os='', browser=''):
 		"""Post a bug
 
 		@param product: product where the bug should be placed
@@ -748,6 +748,10 @@ class Bugz:
 		@type: string
 		@keyword severity: severity of this bug
 		@type: string
+		@keyword os: user operating system
+		@type: string
+		@keyword browser: web browser which caused the bug to manifest
+		@type: string
 
 		@rtype: int
 		@return: the bug number, or 0 if submission failed.
@@ -765,7 +769,8 @@ class Bugz:
 		qparams['bug_file_loc'] = url
 		qparams['dependson'] = dependson
 		qparams['blocked'] = blocked
-		qparams['keywords'] = keywords
+		qparams['op_sys'] = os
+		qparams['cf_browser'] = browser
 
 		#XXX: default version is 'unspecified'
 		if version != '':
