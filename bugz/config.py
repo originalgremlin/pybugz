@@ -35,7 +35,7 @@ class BugzConfig:
 		'component': '',
 		'short_desc': '',
 		'comment': '',
-#		'rep_platform': 'All',
+		'rep_platform': 'All',
 #		'op_sys': 'Linux',
 		},
 
