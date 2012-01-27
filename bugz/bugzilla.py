@@ -719,7 +719,7 @@ class Bugz:
 		except:
 			return {}
 
-	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = '', os='', browser='', milestone=''):
+	def post(self, product, component, title, description, url = '', assigned_to = '', cc = '', keywords = '', version = '', dependson = '', blocked = '', priority = '', severity = '', os='All', browser='All', milestone=''):
 		"""Post a bug
 
 		@param product: product where the bug should be placed
