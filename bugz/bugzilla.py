@@ -11,6 +11,7 @@ import sys
 
 from cookielib import LWPCookieJar, CookieJar
 from cStringIO import StringIO
+from tempfile import gettempdir
 from urlparse import urlsplit, urljoin
 from urllib import urlencode, quote
 from urllib2 import build_opener, HTTPCookieProcessor, Request
@@ -167,7 +168,7 @@ class Bugz:
 
 		if not self.forget:
 			try:
-				cookie_file = os.path.join(os.environ['HOME'], COOKIE_FILE)
+				cookie_file = os.path.join(gettempdir(), COOKIE_FILE)
 				self.cookiejar = LWPCookieJar(cookie_file)
 				if forget:
 					try:
